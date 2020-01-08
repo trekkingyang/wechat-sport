@@ -2,5 +2,5 @@
   "usingComponents": {
     "mp-tabbar": "../components/tabbar/index"
   },
-  "navigationBarTitleText": "爱运动"
+  "navigationBarTitleText": "详情"
 }

@@ -1,13 +1,24 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="wrap-content">
+  <view class="wrap-list" wx:for="{{dataList}}" wx:key="id">
+    <view bindtap="tapToWork" data-id="{{item.id}}">
+      <view class="title">
+        <text class="name">{{item.title}}</text>
+      </view>
+      <view class="wrap-cover">
+        <image class="cover" src="{{item.imgUrl}}"></image>
+      </view>
+      <view class="info">
+        <view class="user-info">
+          <image  class="userinfo-avatar" src="{{item.avatar}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{item.nickName}}</text> 
+        </view>
+          <text class="num">
+            <text class="work-num">{{item.workNum}}人跟练</text> 
+            <text class="comment-num">{{item.commentNum}}人点赞</text>
+          </text>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>
