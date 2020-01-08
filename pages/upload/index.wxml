@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="wrap-content">
+  <view class="" hover-class="none" hover-stop-propagation="false">
+    <image class="" src="{{imgUrl}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+    </image>
+    <view class="countdown" hover-class="none" hover-stop-propagation="false">
+      <text class="" selectable="false" space="false" decode="false">
+        {{duration}}{{stage}}
+      </text>
+      <button  bindtap="pause">暂停</button>
+    </view>
+  </view>
+  <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+</view>
