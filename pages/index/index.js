@@ -11,35 +11,30 @@ Page({
     workNum: 500,
     commentNum: 1000,
     dataList: [
-      {
-        title: 'Burbee',
-        imgUrl: '/images/test/sport1.jpeg',
-        avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ0Rg2eaLHtE7BwLBEXJmQGYMgdXSTSftp1T2g4effCesTM4pr6GfyCKc8YAnTSAjGiaH3gqU4zUcA/132',
-        nickname: '杨洋',
-        workNum: 50,
-        commentNum: 2000,
-      },
-      {
-        title: 'Burbee',
-        imgUrl: '/images/test/sport2.jpeg',
-        avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ0Rg2eaLHtE7BwLBEXJmQGYMgdXSTSftp1T2g4effCesTM4pr6GfyCKc8YAnTSAjGiaH3gqU4zUcA/132',
-        nickname: '杨洋',
-        workNum: 50,
-        commentNum: 2000,
-      }
+      
     ]
   },
   //事件处理函数
   tapToWork: function (e) {
     wx.navigateTo({
-      url: '/pages/practice/index?id=11',
+      url: '/pages/upload/index?id=11',
       success: function (res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
       }
     })
   },
-  onLoad: function () {
+  onLoad: function() {
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    db.collection('sport')
+    .get({
+      success: (res) => {
+        this.setData({
+          dataList: res.data
+        })
+      }
+    })
     wx.getSetting({
 
       success: res => {

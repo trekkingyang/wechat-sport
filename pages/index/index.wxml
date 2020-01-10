@@ -1,22 +1,22 @@
 <!--index.wxml-->
 <view class="wrap-content">
-  <view class="wrap-list" wx:for="{{dataList}}" wx:key="id">
-    <view bindtap="tapToWork" data-id="{{item.id}}">
+  <view class="wrap-list" wx:for="{{dataList}}" wx:key="_id">
+    <view bindtap="tapToWork" data-id="{{item._id}}">
       <view class="title">
         <text class="name">{{item.title}}</text>
       </view>
       <view class="wrap-cover">
-        <image class="cover" src="{{item.imgUrl}}"></image>
+        <image class="cover" src="{{item.themImgUrl}}"></image>
       </view>
       <view class="info">
-        <view class="user-info">
+        <!-- <view class="user-info">
           <image  class="userinfo-avatar" src="{{item.avatar}}" mode="cover"></image>
           <text class="userinfo-nickname">{{item.nickName}}</text> 
-        </view>
-          <text class="num">
+        </view> -->
+          <!-- <text class="num">
             <text class="work-num">{{item.workNum}}人跟练</text> 
             <text class="comment-num">{{item.commentNum}}人点赞</text>
-          </text>
+          </text> -->
       </view>
     </view>
   </view>

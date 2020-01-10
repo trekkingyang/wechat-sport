@@ -1,14 +1,28 @@
 <!--index.wxml-->
 <view class="wrap-content">
-  <view class="" hover-class="none" hover-stop-propagation="false">
-    <image class="" src="{{imgUrl}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-    </image>
-    <view class="countdown" hover-class="none" hover-stop-propagation="false">
-      <text class="" selectable="false" space="false" decode="false">
-        {{duration}}{{stage}}
-      </text>
-      <button  bindtap="pause">暂停</button>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section__title">名称</view>
+      <input name="title" placeholder="please input here" />
     </view>
-  </view>
-  <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+     <view class="section section_gap">
+      <view class="section__title">阶段</view>
+      <checkbox-group name="stage">
+        <label><checkbox value="warmup"/>热身</label>
+        <label><checkbox value="work"/>运动</label>
+        <label><checkbox value="strech"/>拉伸</label>
+      </checkbox-group>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">所属运动</view>
+      <radio-group name="sport">
+        <label><radio value="VIPR"/>VIPR</label>
+        <label><radio value="radio2"/>敏捷梯</label>
+      </radio-group>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">Submit</button>
+      <button formType="reset">Reset</button>
+    </view>
+  </form>
 </view>

@@ -2,5 +2,5 @@
   "usingComponents": {
     "mp-tabbar": "../components/tabbar/index"
   },
-  "navigationBarTitleText": "详情"
+  "navigationBarTitleText": "上传"
 }
